@@ -16,3 +16,15 @@ curtain.addEventListener('click', async () => {
         curtain.remove();
     }, 1400);
 });
+
+const musicBtn = document.getElementById('musicBtn');
+
+musicBtn.addEventListener('click', () => {
+    if (music.paused) {
+        music.play();
+        musicBtn.textContent = '🔊';
+    } else {
+        music.pause();
+        musicBtn.textContent = '🔇';
+    }
+});
