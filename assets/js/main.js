@@ -1,0 +1,1 @@
+const c=document.getElementById("cover");document.getElementById("openBtn").onclick=()=>{c.classList.add("hide");document.getElementById("bgMusic").play().catch(()=>{})};
