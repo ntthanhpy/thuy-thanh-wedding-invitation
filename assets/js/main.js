@@ -7,9 +7,7 @@ const $$ = s => [...document.querySelectorAll(s)];
 const IMG = 'assets/images/';
 // Tên file trong assets/images/gallery (chỉ cần số sau "TDT_"). Sắp xếp lại để đổi thứ tự ảnh.
 const GALLERY = [
-  '0016', '0060', '0062', '0156', '0185', '0205', '0257', '0258', '0289', '0304', '0309', '0326',
-  '8989', '9017', '9025', '9135', '9174', '9257', '9279', '9300', '9311', '9324', '9397', '9402',
-  '9477', '9505', '9608', '9632', '9636', '9644', '9661', '9686', '9696', '9741', '9987'
+  '1', '2', '9', '94', '9478', 'Bless1', 'Bless2'
 ].map(n => `${IMG}gallery/TDT_${n}.jpg`);
 
 // Ảnh ở từng vị trí cố định trên trang (đổi GALLERY[i] thành ảnh bạn muốn)
@@ -27,7 +25,9 @@ const RSVP_URL = 'https://script.google.com/macros/s/AKfycbzyfr8jXEjSLu7yWaCN1G6
 
 // m: link Google Maps ghim vị trí (nên điền, vì địa chỉ nông thôn thường tìm không chính xác). Để trống = tìm theo địa chỉ.
 const EVENTS = [
-  { t: 'Lễ vu quy', at: '2026-11-24T09:00:00+07:00', s: 'Được tổ chức vào lúc 09:00, Thứ Ba', d: '24', l: '16 tháng 10 năm Bính Ngọ',
+  { t: 'Lễ xuất giá', at: '2026-11-23T09:00:00+07:00', s: 'Được tổ chức vào lúc 10:00, Thứ Ba', d: '24', l: '16 tháng 10 năm Bính Ngọ',
+    p: 'Tại tư gia nhà gái', a: 'Ấp Trung Điền, Xã Long Điền Đông, Cà Mau', m: '' },
+  { t: 'Lễ vu quy', at: '2026-11-24T09:00:00+07:00', s: 'Được tổ chức vào lúc 10:00, Thứ Ba', d: '24', l: '16 tháng 10 năm Bính Ngọ',
     p: 'Tại tư gia nhà gái', a: 'Ấp Trung Điền, Xã Long Điền Đông, Cà Mau', m: '' },
   { t: 'Lễ tân hôn', at: '2026-11-28T09:00:00+07:00', s: 'Được tổ chức vào lúc 09:00, Thứ Bảy', d: '28', l: '20 tháng 10 năm Bính Ngọ',
     p: 'Tại tư gia nhà trai', a: 'Thôn Phú Tân 2, Xã Ô Loan, Đắk Lắk', m: '' }
