@@ -6,7 +6,7 @@ html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
 *{box-sizing:border-box}
 body{margin:0;background:var(--out);color:var(--ink);font:400 15px/1.7 'Be Vietnam Pro',system-ui,sans-serif}
 body.lock{overflow:hidden}
-.wrap{max-width:480px;margin:0 auto;background:var(--bg);overflow:hidden;box-shadow:0 0 40px rgba(0,0,0,.12)}
+.wrap{max-width:560px;margin:0 auto;background:var(--bg);overflow:hidden;box-shadow:0 0 40px rgba(0,0,0,.12)}
 .serif,h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500}
 .sc{font:400 64px/1 'Great Vibes',cursive}
 /* curtain */
