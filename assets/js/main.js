@@ -146,8 +146,9 @@ $('#send').onclick = function () {
   $('#wl').prepend(d);
   if (RSVP_URL) {
     fetch(RSVP_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(data) })
-      .catch(() => toast('Chưa gửi được, bạn thử lại sau nhé'));
-  }
+      .then(() => console.log('Đã gửi yêu cầu tới Google Sheet'))
+      .catch(err => { console.error('Gửi lời chúc lỗi:', err); toast('Chưa gửi được, bạn thử lại sau nhé'); });
+  } else console.warn('RSVP_URL đang trống nên lời chúc chưa được gửi đi');
   n.value = w.value = ''; a.value = '';
   this.disabled = true; setTimeout(() => { this.disabled = false; }, 3000);
   toast('Cảm ơn bạn đã gửi lời chúc ♡');
