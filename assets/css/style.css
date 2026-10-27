@@ -38,7 +38,8 @@ body.lock{overflow:hidden}
 .q{font:italic 400 19px/1.7 'Cormorant Garamond',serif;color:var(--soft);margin:0 0 26px}
 .gw{margin:0 0 26px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft)}
 .gw b{display:block;font:500 28px 'Cormorant Garamond',serif;letter-spacing:.04em;text-transform:none;color:var(--g2)}
-.par{display:grid;grid-template-columns:1fr 1fr;gap:16px;text-align:left;font-size:13.5px}
+.par{display:grid;grid-template-columns:1fr 1fr;gap:16px;text-align:center;font-size:13.5px}
+.par > div {display: flex; flex-direction: column; align-items: center;}
 .par h3{font-size:17px;letter-spacing:.16em;text-transform:uppercase;margin:0 0 4px;color:var(--g2)}
 .par p{margin:0}.par small{color:var(--soft)}
 .heart{font-size:30px;color:var(--g);margin:22px 0 8px}
