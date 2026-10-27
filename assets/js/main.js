@@ -23,7 +23,7 @@ const PHOTOS = {
 const TRACKS = ['assets/audio/wedding.mp3', 'assets/audio/wedding2.mp3']; // phát lần lượt, lặp lại
 
 // Dán URL Google Apps Script (Web app) vào đây để nhận lời chúc & xác nhận vào Google Sheet. Để trống = chỉ hiển thị trên máy khách.
-const RSVP_URL = '';
+const RSVP_URL = 'https://script.google.com/macros/s/AKfycbzyfr8jXEjSLu7yWaCN1G6m_8Fh-SK2OXnyfNATDo7gPMhrEaMwaALkIEJh0C11bJZhqw/exec';
 
 // m: link Google Maps ghim vị trí (nên điền, vì địa chỉ nông thôn thường tìm không chính xác). Để trống = tìm theo địa chỉ.
 const EVENTS = [

@@ -1,0 +1,113 @@
+/* Thiệp cưới Tấn Thành & Diễm Thùy */
+:root{--g:#6c9f2c;--g2:#4f7d1d;--bg:#fbfaf5;--out:#dfe7cf;--ink:#4a4f3c;--soft:#7f8570;--line:#c9d3b4;--card:#fff;--p1:#e4ecd3;--p2:#b5cc8c;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--g:#7fb03d;--g2:#5a8a22;--bg:#171d13;--out:#0d110a;--ink:#e7ead9;--soft:#a5ab92;--line:#38452d;--card:#1f281a;--p1:#2c3a22;--p2:#476a2a;color-scheme:dark}}
+:root[data-theme="dark"]{--g:#7fb03d;--g2:#5a8a22;--bg:#171d13;--out:#0d110a;--ink:#e7ead9;--soft:#a5ab92;--line:#38452d;--card:#1f281a;--p1:#2c3a22;--p2:#476a2a;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--out);color:var(--ink);font:400 15px/1.7 'Be Vietnam Pro',system-ui,sans-serif}
+body.lock{overflow:hidden}
+.wrap{max-width:480px;margin:0 auto;background:var(--bg);overflow:hidden;box-shadow:0 0 40px rgba(0,0,0,.12)}
+.serif,h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500}
+.sc{font:400 64px/1 'Great Vibes',cursive}
+/* curtain */
+#curtain{position:fixed;inset:0;z-index:50}
+.h{position:absolute;top:0;bottom:0;width:50%;background:repeating-linear-gradient(0deg,var(--g) 0 2px,var(--g2) 2px 4px);transition:transform 1.2s cubic-bezier(.7,0,.2,1)}
+.h.l{left:0}.h.r{right:0}
+.open .l{transform:translateX(-101%)}.open .r{transform:translateX(101%)}
+#seal{position:absolute;left:50%;top:50%;width:136px;height:136px;margin:-68px;border:0;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fffbe3,#e6e0a8);color:#6a7a2a;font:400 56px/1 'Great Vibes',cursive;box-shadow:0 8px 24px rgba(0,0,0,.3),0 0 0 10px rgba(255,255,230,.45);cursor:pointer;transition:.6s;animation:pl 2.2s infinite}
+.open #seal,.open .hint{opacity:0;transform:scale(1.6)}
+.hint{position:absolute;left:0;right:0;top:calc(50% + 100px);text-align:center;color:#fff;font:500 14px 'Be Vietnam Pro',sans-serif;letter-spacing:.14em;text-transform:uppercase;transition:.5s}
+@keyframes pl{50%{transform:scale(1.07)}}
+/* music */
+.music-btn{position:fixed;z-index:40;right:14px;top:calc(14px + env(safe-area-inset-top,0px));width:42px;height:42px;border:0;border-radius:50%;background:rgba(79,125,29,.9);color:#fff;font-size:18px;line-height:1;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.25)}
+.music-btn.on{animation:spin 6s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+/* photos */
+.ph{background:linear-gradient(160deg,var(--p1),var(--p2));background-size:cover;background-position:center;display:grid;place-items:center;color:rgba(255,255,255,.9);font:italic 16px 'Cormorant Garamond',serif;min-height:100%}
+.ph::before{content:"♡ " attr(data-l)}
+.ph.has::before{display:none}
+.r34{aspect-ratio:3/4}
+/* hero */
+.hero{position:relative;height:100vh;height:min(100svh,860px);min-height:560px;overflow:hidden}
+.hero .ph{position:absolute;inset:0;background-position:center top}
+.ov{position:absolute;left:0;right:0;bottom:0;padding:110px 20px 30px;text-align:center;color:#fff;background:linear-gradient(transparent,rgba(20,35,10,.6));text-shadow:0 1px 8px rgba(0,0,0,.35)}
+.ov h1{font-size:25px;line-height:1.5;letter-spacing:.22em;margin:4px 0}
+.ov p{margin:0;letter-spacing:.12em}
+/* sections */
+.sec{padding:44px 26px;text-align:center}
+.q{font:italic 400 19px/1.7 'Cormorant Garamond',serif;color:var(--soft);margin:0 0 26px}
+.gw{margin:0 0 26px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft)}
+.gw b{display:block;font:500 28px 'Cormorant Garamond',serif;letter-spacing:.04em;text-transform:none;color:var(--g2)}
+.par{display:grid;grid-template-columns:1fr 1fr;gap:16px;text-align:left;font-size:13.5px}
+.par h3{font-size:17px;letter-spacing:.16em;text-transform:uppercase;margin:0 0 4px;color:var(--g2)}
+.par p{margin:0}.par small{color:var(--soft)}
+.heart{font-size:30px;color:var(--g);margin:22px 0 8px}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.duo small{display:block;letter-spacing:.2em;font-size:11px;color:var(--soft)}
+.duo i{font:italic 400 30px 'Cormorant Garamond',serif;color:var(--g2)}
+.frame{background:var(--g);padding:12px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.msg{font:500 17px/1.6 'Cormorant Garamond',serif;letter-spacing:.06em;text-transform:uppercase}
+.ev{margin-bottom:34px}.ev:last-child{margin-bottom:0}
+.ring{width:44px;height:30px;color:var(--g2);margin-bottom:6px}
+.ev h2{font-size:22px;letter-spacing:.14em;text-transform:uppercase;margin:0}
+.ev .s{color:var(--soft);font-size:13.5px;margin:2px 0 14px}
+.dr{display:flex;align-items:center;justify-content:center;gap:14px}
+.dr span{border-block:1px solid var(--line);padding:1px 12px;font-size:13px;letter-spacing:.1em;color:var(--soft)}
+.dr b{font:400 60px/1 'Cormorant Garamond',serif;color:var(--g2)}
+.lun{font:italic 400 16px 'Cormorant Garamond',serif;color:var(--soft);margin:10px 0 14px}
+.ev h3{font-size:17px;letter-spacing:.1em;text-transform:uppercase;margin:0}
+.ev .ad{font-size:13.5px;color:var(--soft);margin:2px 0 14px}
+.btn{display:block;width:100%;border:0;border-radius:999px;padding:12px 18px;background:var(--g2);color:#fff;font:600 12.5px 'Be Vietnam Pro',sans-serif;letter-spacing:.08em;text-transform:uppercase;text-align:center;text-decoration:none;cursor:pointer}
+.btn.sm{display:inline-block;width:auto;padding:9px 26px}
+.btn:hover{filter:brightness(1.08)}
+.btn:disabled{opacity:.6;cursor:default}
+.gold{background:var(--g);padding:40px 16px 16px;color:#fff;text-align:center}
+.gold h2{font-size:30px;letter-spacing:.06em;margin:0}.gold h2 i{font:400 34px 'Great Vibes',cursive;margin:0 4px}
+.gold p{font-size:13.5px;margin:8px 10px 22px;opacity:.95}
+.mos{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:100px;gap:10px;margin-bottom:10px}
+.mos .a{grid-column:span 4;grid-row:span 3}.mos .b{grid-column:span 2;grid-row:span 2}.mos .c{grid-column:span 2}.mos .d,.mos .e{grid-column:span 3;grid-row:span 2}
+.mos .ph{border:3px solid var(--card)}
+/* album + lightbox */
+.cdt{font:400 44px 'Great Vibes',cursive;color:var(--g2);text-align:center}
+.album{padding:8px 12px 40px}
+#album{columns:2;column-gap:8px}
+#album img{width:100%;display:block;margin:0 0 8px;border-radius:6px;background:var(--p1);cursor:zoom-in;break-inside:avoid}
+#lb{position:fixed;inset:0;z-index:70;background:rgba(8,14,4,.93);display:flex;align-items:center;justify-content:center}
+#lb[hidden]{display:none}
+#lb img{max-width:100%;max-height:88vh;max-height:88svh;object-fit:contain}
+#lb button{position:absolute;border:0;background:rgba(255,255,255,.16);color:#fff;width:44px;height:44px;border-radius:50%;font-size:22px;line-height:1;cursor:pointer}
+#lb .x{top:calc(14px + env(safe-area-inset-top,0px));right:14px}
+#lb .pv{left:10px;top:50%;margin-top:-22px}#lb .nx{right:10px;top:50%;margin-top:-22px}
+/* rsvp */
+.rsvp{text-align:left}
+.rsvp h2{text-align:center;font-size:26px;margin:0 0 4px;color:var(--g2)}
+.rsvp>p{text-align:center;color:var(--soft);font-size:13.5px;margin:0 0 18px}
+.in{width:100%;margin-bottom:10px;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--ink);font:400 14.5px 'Be Vietnam Pro',sans-serif}
+.in:focus,.btn:focus-visible,#seal:focus-visible,.music-btn:focus-visible{outline:2px solid var(--g);outline-offset:2px}
+textarea.in{min-height:96px;resize:vertical}
+.rsvp .btn{margin-top:4px}
+.wishes{margin-top:18px;display:grid;gap:8px}
+.wishes div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 14px;font-size:13.5px}
+.wishes b{display:block;color:var(--g2)}
+.cd{display:flex;justify-content:center;gap:26px;margin-top:6px}
+.cd div{font-size:12px;color:var(--soft)}
+.cd b{display:block;font:400 38px/1.1 'Cormorant Garamond',serif;color:var(--ink)}
+.cdl{font-size:12.5px;color:var(--soft);margin:4px 0 0}
+.ty{position:relative;height:420px}
+.ty .ph{position:absolute;inset:0}
+.ty .t{position:absolute;inset:auto 0 0;padding:70px 22px 24px;color:#fff;text-align:center;font-size:13.5px;background:linear-gradient(transparent,rgba(20,35,10,.65));text-shadow:0 1px 6px rgba(0,0,0,.4)}
+.t .sc{font-size:44px;display:block;margin-bottom:4px}
+footer{text-align:center;font-size:12px;color:var(--soft);padding:18px}
+/* gift dialog */
+dialog{border:0;border-radius:22px;padding:26px 24px;max-width:340px;width:calc(100% - 40px);max-height:92vh;overflow:auto;background:var(--card);color:var(--ink);text-align:center}
+dialog::backdrop{background:rgba(10,20,5,.6)}
+dialog h2{margin:0 0 12px;color:var(--g2)}
+.bk{border:1px dashed var(--line);border-radius:14px;padding:12px;margin-bottom:10px;font-size:13.5px}
+.bk b{display:block}
+.bk .btn{margin-top:8px;padding:7px 18px;font-size:11.5px}
+.bk img{width:100%;margin-top:10px;border-radius:12px;background:#fff}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,30px);background:var(--g2);color:#fff;padding:10px 20px;border-radius:999px;font-size:13.5px;opacity:0;pointer-events:none;transition:.4s;z-index:80;white-space:nowrap}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity .9s,transform .9s}
+.js .rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}#seal,.music-btn.on{animation:none}.h{transition:none}html{scroll-behavior:auto}}
