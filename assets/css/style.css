@@ -176,3 +176,8 @@ dialog h2{margin:0 0 12px;color:var(--g2)}
 .auto-scroll-btn[hidden]{display:none}
 .auto-scroll-btn:focus-visible{outline:2px solid var(--g);outline-offset:2px}
 @media(prefers-reduced-motion:reduce){.ph.has>img,.ph.has.photo-reveal.in>img{opacity:1;transform:none;transition:none}}
+
+/* Dán đoạn này vào CUỐI assets/css/style.css.
+   Giữ nền khung và nền chờ ảnh cùng màu nền thiệp khi ảnh xuất hiện. */
+.frame{background:var(--bg,#fbfaf5)}
+.frame .ph.has,.mos>.ph.has{background:var(--bg,#fbfaf5)}
