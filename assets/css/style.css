@@ -161,3 +161,18 @@ dialog h2{margin:0 0 12px;color:var(--g2)}
 .js .gold.in .mos>.ph.d{transition-delay:.85s}
 .js .gold.in .mos>.ph.e{transition-delay:1.05s}
 @media(prefers-reduced-motion:reduce){.js .gold .mos>.ph{opacity:1;transform:none;clip-path:none;transition:none}}
+
+/* Ảnh chuyển động nhẹ khi xuất hiện; hover chỉ áp dụng cho thiết bị có chuột. */
+.ph.has{position:relative;overflow:hidden}
+.ph.has>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;transform:scale(1.07) translateY(3%);opacity:0;transition:transform 1.25s cubic-bezier(.2,.7,.2,1),opacity 1s ease}
+.ph.has.photo-reveal.in>img{opacity:1;transform:scale(1) translateY(0)}
+.hero .ph.has>img{object-position:center top}
+.mos>.ph.has>img{object-position:50% 15%}
+.mos>.ph.c.has>img{object-position:50% 8%}
+@media(hover:hover) and (pointer:fine){
+  .ph.has.photo-reveal.in:hover>img{transform:scale(1.09);filter:saturate(1.08)}
+}
+.auto-scroll-btn{position:fixed;z-index:40;right:14px;top:calc(64px + env(safe-area-inset-top,0px));border:1px solid rgba(255,255,255,.45);border-radius:999px;padding:9px 12px;background:rgba(79,125,29,.94);color:white;font:600 12px 'Be Vietnam Pro',sans-serif;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.18)}
+.auto-scroll-btn[hidden]{display:none}
+.auto-scroll-btn:focus-visible{outline:2px solid var(--g);outline-offset:2px}
+@media(prefers-reduced-motion:reduce){.ph.has>img,.ph.has.photo-reveal.in>img{opacity:1;transform:none;transition:none}}
