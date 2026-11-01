@@ -7,7 +7,7 @@ const $$ = s => [...document.querySelectorAll(s)];
 const IMG = 'assets/images/';
 // Tên file trong assets/images/gallery (chỉ cần số sau "TDT_"). Sắp xếp lại để đổi thứ tự ảnh.
 const GALLERY = [
-  'Bless1', 'Bless2', '1', '2', '9', '94', '9478'
+  'Bless1', 'Bless2', '1', '2', '9', '94', '0185', '9478'
 ].map(n => `${IMG}gallery/TDT_${n}.jpg`);
 
 // Ảnh ở từng vị trí cố định trên trang (đổi GALLERY[i] thành ảnh bạn muốn)
