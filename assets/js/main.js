@@ -7,7 +7,7 @@ const $$ = s => [...document.querySelectorAll(s)];
 const IMG = 'assets/images/';
 // Tên file trong assets/images/gallery (chỉ cần số sau "TDT_"). Sắp xếp lại để đổi thứ tự ảnh.
 const GALLERY = [
-  '1', '2', '9', '94', '9478', 'Bless1', 'Bless2'
+  '1', '2', '9', '94', 'Bless1', 'Bless2', '9478'
 ].map(n => `${IMG}gallery/TDT_${n}.jpg`);
 
 // Ảnh ở từng vị trí cố định trên trang (đổi GALLERY[i] thành ảnh bạn muốn)
@@ -18,7 +18,7 @@ const PHOTOS = {
   ty: GALLERY[GALLERY.length - 1]
 };
 
-const TRACKS = ['assets/audio/wedding.mp3', 'assets/audio/wedding2.mp3']; // phát lần lượt, lặp lại
+const TRACKS = ['assets/audio/wedding.mp3', 'assets/audio/wedding3.mp3']; // phát lần lượt, lặp lại
 
 // Dán URL Google Apps Script (Web app) vào đây để nhận lời chúc & xác nhận vào Google Sheet. Để trống = chỉ hiển thị trên máy khách.
 const RSVP_URL = 'https://script.google.com/macros/s/AKfycbzyfr8jXEjSLu7yWaCN1G6m_8Fh-SK2OXnyfNATDo7gPMhrEaMwaALkIEJh0C11bJZhqw/exec';
