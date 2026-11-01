@@ -1,0 +1,10 @@
+HUONG DAN CAP NHAT ANH CUOI DA TOI UU
+
+Ban nay chi gom anh JPG toi uu va giu dung cau truc assets/images cua project.
+1. Giai nen tep ZIP.
+2. Sao chep cac file trong thu muc assets/images vua giai nen vao thu muc assets/images cua project hien tai. Khi duoc hoi, chon thay the cac file trung ten.
+3. Giu nguyen cac tep khac trong project, bao gom ma QR vietqr.png.
+4. Commit va push cac file anh len GitHub de GitHub Pages cap nhat.
+5. Mo trang, nhan Ctrl + F5 de kiem tra. Neu van thay anh cu tren dien thoai, xoa cache trinh duyet va thu lai.
+
+Tat ca 11 anh goc 3990 x 5990 da duoc resize ve 1279 x 1920, JPEG progressive chat luong 85. Khong crop; giu nguyen ten tep va ty le anh. Tong dung luong giam tu 116.28 MiB xuong 2.59 MiB (97.8%). Anh da nen va resize khong phai ban goc de in anh lon; giu lai anh goc de luu tru.
