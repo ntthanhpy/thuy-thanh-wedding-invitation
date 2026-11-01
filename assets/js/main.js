@@ -35,7 +35,15 @@ const EVENTS = [
 // Ảnh cố định
 $$('[data-p]').forEach(e => {
   const u = PHOTOS[e.dataset.p];
-  if (u) { e.style.backgroundImage = `url("${u}")`; e.classList.add('has'); }
+  if (u) {
+    const image = document.createElement('img');
+    image.src = u;
+    image.alt = e.dataset.l || 'Ảnh cưới';
+    image.decoding = 'async';
+    image.loading = e.dataset.p === 'cover' ? 'eager' : 'lazy';
+    e.append(image);
+    e.classList.add('has', 'photo-reveal');
+  }
 });
 
 // Lễ
@@ -96,6 +104,7 @@ curtain.addEventListener('click', () => {
   document.body.classList.remove('lock');
   playM();
   setTimeout(() => curtain.remove(), 1400);
+  scheduleAutoScroll();
 });
 
 // Tên khách: ...#anh-tuan hoặc ...?khach=Anh+Tuan
@@ -121,11 +130,70 @@ function tick() {
 }
 tick(); setInterval(tick, 1000);
 
-// Hiệu ứng xuất hiện khi cuộn
-const io = new IntersectionObserver(es => es.forEach(x => {
-  if (x.isIntersecting) { x.target.classList.add('in'); io.unobserve(x.target); }
-}), { threshold: .12 });
-$$('.rv').forEach(e => io.observe(e));
+// Ảnh và nội dung xuất hiện khi đi vào khung nhìn.
+const revealItems = $$('.rv, .photo-reveal');
+if ('IntersectionObserver' in window) {
+  const io = new IntersectionObserver(entries => entries.forEach(entry => {
+    if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); }
+  }), { threshold: .12 });
+  revealItems.forEach(item => io.observe(item));
+} else revealItems.forEach(item => item.classList.add('in'));
+
+// Tự cuộn chậm sau khi mở thiệp. Người xem luôn có thể dừng hoặc bật lại.
+const autoButton = $('#autoScrollBtn');
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+const AUTO_SCROLL_SPEED = 24; // pixel/giây; chỉnh số này để thay đổi tốc độ
+let autoRunning = false, autoFrame = 0, autoDelay = 0, lastFrame = 0, autoPosition = 0;
+function updateAutoButton() {
+  autoButton.hidden = false;
+  autoButton.textContent = autoRunning ? 'Ⅱ Dừng tự cuộn' : '▶ Tự cuộn';
+  autoButton.setAttribute('aria-pressed', String(autoRunning));
+}
+function stopAutoScroll() {
+  clearTimeout(autoDelay);
+  cancelAnimationFrame(autoFrame);
+  autoDelay = 0;
+  autoRunning = false;
+  lastFrame = 0;
+  updateAutoButton();
+}
+function autoStep(timestamp) {
+  if (!autoRunning) return;
+  if (!lastFrame) lastFrame = timestamp;
+  const elapsed = Math.min(timestamp - lastFrame, 50);
+  lastFrame = timestamp;
+  const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+  autoPosition = Math.min(maxScroll, autoPosition + elapsed * AUTO_SCROLL_SPEED / 1000);
+  window.scrollTo({ top: autoPosition, behavior: 'instant' });
+  if (autoPosition >= maxScroll - 1) { stopAutoScroll(); return; }
+  autoFrame = requestAnimationFrame(autoStep);
+}
+function startAutoScroll() {
+  clearTimeout(autoDelay);
+  autoDelay = 0;
+  if (autoRunning) return;
+  autoRunning = true;
+  autoPosition = window.scrollY;
+  lastFrame = 0;
+  updateAutoButton();
+  autoFrame = requestAnimationFrame(autoStep);
+}
+function scheduleAutoScroll() {
+  updateAutoButton();
+  if (!reducedMotion.matches) autoDelay = setTimeout(startAutoScroll, 2000);
+}
+autoButton.addEventListener('click', () => autoRunning ? stopAutoScroll() : startAutoScroll());
+// Không tự cuộn khi khách đang tương tác với nội dung hay chuyển sang tab khác.
+['wheel', 'touchstart', 'pointerdown'].forEach(type => window.addEventListener(type, event => {
+  if (event.target.closest && event.target.closest('#autoScrollBtn, #curtain')) return;
+  if (autoRunning || autoDelay) stopAutoScroll();
+}, { passive: true }));
+document.addEventListener('keydown', event => {
+  if (event.target.closest && event.target.closest('#autoScrollBtn')) return;
+  if (['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' '].includes(event.key) && (autoRunning || autoDelay)) stopAutoScroll();
+});
+document.addEventListener('visibilitychange', () => { if (document.hidden && (autoRunning || autoDelay)) stopAutoScroll(); });
+if (reducedMotion.addEventListener) reducedMotion.addEventListener('change', e => { if (e.matches && (autoRunning || autoDelay)) stopAutoScroll(); });
 
 // Thông báo nhỏ
 const toast = m => {
