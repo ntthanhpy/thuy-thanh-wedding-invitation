@@ -28,9 +28,7 @@ const EVENTS = [
   { t: 'Lễ xuất giá', at: '2026-11-23T09:00:00+07:00', s: 'Được tổ chức vào lúc 10:00, Thứ Ba', d: '24', l: '16 tháng 10 năm Bính Ngọ',
     p: 'Tại tư gia nhà gái', a: 'Ấp Trung Điền, Xã Long Điền Đông, Cà Mau', m: '' },
   { t: 'Lễ vu quy', at: '2026-11-24T09:00:00+07:00', s: 'Được tổ chức vào lúc 10:00, Thứ Ba', d: '24', l: '16 tháng 10 năm Bính Ngọ',
-    p: 'Tại tư gia nhà gái', a: 'Ấp Trung Điền, Xã Long Điền Đông, Cà Mau', m: '' },
-  { t: 'Lễ tân hôn', at: '2026-11-28T09:00:00+07:00', s: 'Được tổ chức vào lúc 09:00, Thứ Bảy', d: '28', l: '20 tháng 10 năm Bính Ngọ',
-    p: 'Tại tư gia nhà trai', a: 'Thôn Phú Tân 2, Xã Ô Loan, Đắk Lắk', m: '' }
+    p: 'Tại tư gia nhà gái', a: 'Ấp Trung Điền, Xã Long Điền Đông, Cà Mau', m: '' }
 ];
 /* ============================================ */
 
