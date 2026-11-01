@@ -7,14 +7,14 @@ const $$ = s => [...document.querySelectorAll(s)];
 const IMG = 'assets/images/';
 // Tên file trong assets/images/gallery (chỉ cần số sau "TDT_"). Sắp xếp lại để đổi thứ tự ảnh.
 const GALLERY = [
-  '1', '2', '9', '94', 'Bless1', 'Bless2', '9478'
+  'Bless1', 'Bless2', '1', '2', '9', '94', '9478'
 ].map(n => `${IMG}gallery/TDT_${n}.jpg`);
 
 // Ảnh ở từng vị trí cố định trên trang (đổi GALLERY[i] thành ảnh bạn muốn)
 const PHOTOS = {
   cover: IMG + 'cover.jpg', groom: IMG + 'groom.jpg', bride: IMG + 'bride.jpg',
   m1: GALLERY[0], m2: GALLERY[1],
-  g1: GALLERY[2], g2: GALLERY[3], g3: GALLERY[4], g4: GALLERY[5], g5: GALLERY[6],
+  g1: GALLERY[2], g2: GALLERY[3], g3: GALLERY[4], g4: GALLERY[5],
   ty: GALLERY[GALLERY.length - 1]
 };
 
