@@ -60,7 +60,7 @@ let cur = 0;
 const show = i => { cur = (i + ALBUM.length) % ALBUM.length; lbImg.src = ALBUM[cur]; };
 const openLb = i => { show(i); lb.hidden = false; document.body.classList.add('lock'); };
 const closeLb = () => { lb.hidden = true; lbImg.removeAttribute('src'); document.body.classList.remove('lock'); };
-$('#album').addEventListener('click', e => { const im = e.target.closest('img'); if (im) openLb(+im.dataset.i); });
+// $('#album').addEventListener('click', e => { const im = e.target.closest('img'); if (im) openLb(+im.dataset.i); });
 $('#lb .x').onclick = closeLb;
 $('#lb .pv').onclick = () => show(cur - 1);
 $('#lb .nx').onclick = () => show(cur + 1);
