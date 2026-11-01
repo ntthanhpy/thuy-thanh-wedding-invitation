@@ -1,0 +1,8 @@
+BẢN VÁ 1.2 — KHẮC PHỤC NỀN XANH NHÁY KHI CUỘN
+
+1. Mở file assets/css/style.css trong project hiện tại.
+2. Mở file fix-nen-anh.css trong gói này, sao chép toàn bộ nội dung.
+3. Dán vào CUỐI file style.css, lưu và cập nhật GitHub Pages.
+4. Tải lại trang bằng Ctrl+F5; thử cuộn tới các cặp ảnh và bộ sưu tập.
+
+Không thay toàn bộ style.css vì website hiện tại có thể đã được chỉnh sửa sau bản v1.1. Đoạn CSS đổi nền khung ảnh và nền chờ ảnh thành màu nền thiệp; không đổi chức năng tự cuộn, nhạc hoặc hiệu ứng ảnh. Nếu vẫn thấy màu xanh, kiểm tra có quy tắc CSS xuất hiện sau đoạn này hoặc gửi bản project mới nhất để xác định chính xác.

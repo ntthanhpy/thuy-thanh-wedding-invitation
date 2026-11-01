@@ -1,0 +1,4 @@
+/* Dán đoạn này vào CUỐI assets/css/style.css.
+   Giữ nền khung và nền chờ ảnh cùng màu nền thiệp khi ảnh xuất hiện. */
+.frame{background:var(--bg,#fbfaf5)}
+.frame .ph.has,.mos>.ph.has{background:var(--bg,#fbfaf5)}
