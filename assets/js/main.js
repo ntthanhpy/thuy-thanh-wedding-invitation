@@ -25,9 +25,9 @@ const RSVP_URL = 'https://script.google.com/macros/s/AKfycbzyfr8jXEjSLu7yWaCN1G6
 
 // m: link Google Maps ghim vị trí (nên điền, vì địa chỉ nông thôn thường tìm không chính xác). Để trống = tìm theo địa chỉ.
 const EVENTS = [
-  { t: 'Lễ xuất giá', at: '2026-11-23T09:00:00+07:00', s: 'Được tổ chức vào lúc 10:00, Thứ Ba', d: '24', l: '16 tháng 10 năm Bính Ngọ',
+  { t: 'Đãi tiệc trước Lễ vu quy', at: '2026-11-23T09:00:00+07:00', s: 'Được tổ chức vào lúc 13:00, Thứ Hai', d: '23', l: '15 tháng 10 năm Bính Ngọ',
     p: 'Tại tư gia nhà gái', a: 'Ấp Trung Điền, Xã Long Điền Đông, Cà Mau', m: '' },
-  { t: 'Lễ vu quy', at: '2026-11-24T09:00:00+07:00', s: 'Được tổ chức vào lúc 10:00, Thứ Ba', d: '24', l: '16 tháng 10 năm Bính Ngọ',
+  { t: 'Đãi tiệc sau Lễ vu quy', at: '2026-11-24T09:00:00+07:00', s: 'Được tổ chức vào lúc 10:00, Thứ Ba', d: '24', l: '16 tháng 10 năm Bính Ngọ',
     p: 'Tại tư gia nhà gái', a: 'Ấp Trung Điền, Xã Long Điền Đông, Cà Mau', m: '' }
 ];
 /* ============================================ */
@@ -51,8 +51,8 @@ $('#events').innerHTML = EVENTS.map(e => {
 // Album: các ảnh chưa dùng ở vị trí cố định
 const used = new Set(Object.values(PHOTOS));
 const ALBUM = GALLERY.filter(u => !used.has(u));
-$('#album').innerHTML = ALBUM.map((u, i) =>
-  `<img src="${u}" alt="Ảnh cưới Tấn Thành và Diễm Thùy" loading="lazy" decoding="async" data-i="${i}">`).join('');
+// $('#album').innerHTML = ALBUM.map((u, i) =>
+//   `<img src="${u}" alt="Ảnh cưới Tấn Thành và Diễm Thùy" loading="lazy" decoding="async" data-i="${i}">`).join('');
 
 // Xem ảnh lớn
 const lb = $('#lb'), lbImg = $('#lb img');
