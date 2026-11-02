@@ -26,9 +26,11 @@ const RSVP_URL = 'https://script.google.com/macros/s/AKfycbzyfr8jXEjSLu7yWaCN1G6
 // m: link Google Maps ghim vị trí (nên điền, vì địa chỉ nông thôn thường tìm không chính xác). Để trống = tìm theo địa chỉ.
 const EVENTS = [
   { t: 'Đãi tiệc trước Lễ vu quy', at: '2026-11-23T09:00:00+07:00', s: 'Được tổ chức vào lúc 13:00, Thứ Hai', d: '23', l: '15 tháng 10 năm Bính Ngọ',
-    p: 'Tại tư gia nhà gái', a: 'Ấp Trung Điền, Xã Long Điền Đông, Cà Mau', m: '' },
+    p: 'Tại tư gia nhà gái', a: 'Ấp Trung Điền, Xã Long Điền Đông, Cà Mau', m: '',
+    en: { t: 'Pre-ceremony celebration', s: 'Monday at 1:00 PM', l: '(15th day of the 10th lunar month, Year of the Horse)', p: 'At the bride’s family home', a: 'Trung Điền Hamlet, Long Điền Đông Commune, Cà Mau' } },
   { t: 'Đãi tiệc sau Lễ vu quy', at: '2026-11-24T09:00:00+07:00', s: 'Được tổ chức vào lúc 10:00, Thứ Ba', d: '24', l: '16 tháng 10 năm Bính Ngọ',
-    p: 'Tại tư gia nhà gái', a: 'Ấp Trung Điền, Xã Long Điền Đông, Cà Mau', m: '' }
+    p: 'Tại tư gia nhà gái', a: 'Ấp Trung Điền, Xã Long Điền Đông, Cà Mau', m: '',
+    en: { t: 'Post-ceremony celebration', s: 'Tuesday at 10:00 AM', l: '(16th day of the 10th lunar month, Year of the Horse)', p: 'At the bride’s family home', a: 'Trung Điền Hamlet, Long Điền Đông Commune, Cà Mau' } }
 ];
 /* ============================================ */
 
@@ -50,10 +52,10 @@ $$('[data-p]').forEach(e => {
 const ring = '<svg class="ring" viewBox="0 0 44 30" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="16" cy="18" r="9"/><circle cx="28" cy="18" r="9"/><path d="M13 5l3-3 3 3-3 4z"/></svg>';
 $('#events').innerHTML = EVENTS.map(e => {
   const map = e.m || 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(e.a);
-  return `<div class="ev rv">${ring}<h2>${e.t}</h2><div class="s">${e.s}</div>
-<div class="dr"><span>THÁNG 11</span><b>${e.d}</b><span>NĂM 2026</span></div><div class="lun">(Tức ngày ${e.l})</div>
-<h3>${e.p}</h3><div class="ad">${e.a}</div>
-<a class="btn sm" target="_blank" rel="noopener" href="${map}">Xem chỉ đường</a></div>`;
+  return `<div class="ev rv">${ring}<h2 data-en="${e.en.t}">${e.t}</h2><div class="s" data-en="${e.en.s}">${e.s}</div>
+<div class="dr"><span data-en="NOVEMBER">THÁNG 11</span><b>${e.d}</b><span data-en="YEAR 2026">NĂM 2026</span></div><div class="lun" data-en="${e.en.l}">(Tức ngày ${e.l})</div>
+<h3 data-en="${e.en.p}">${e.p}</h3><div class="ad" data-en="${e.en.a}">${e.a}</div>
+<a class="btn sm" target="_blank" rel="noopener" href="${map}" data-en="Get directions">Xem chỉ đường</a></div>`;
 }).join('');
 
 // Album: các ảnh chưa dùng ở vị trí cố định
@@ -124,7 +126,7 @@ function tick() {
   const now = Date.now();
   const k = times.findIndex(t => t > now);
   const t = k === -1 ? times[times.length - 1] : times[k];
-  $('#cdl').textContent = k === -1 ? '' : 'Đến ' + EVENTS[k].t.toLowerCase();
+  $('#cdl').textContent = k === -1 ? '' : (currentLanguage === 'en' ? 'Until the ' + EVENTS[k].en.t.toLowerCase() : 'Đến ' + EVENTS[k].t.toLowerCase());
   const s = Math.max(0, t - now) / 1000 | 0;
   [s / 86400 | 0, s % 86400 / 3600 | 0, s % 3600 / 60 | 0, s % 60].forEach((v, i) => { nums[i].textContent = String(v).padStart(2, '0'); });
 }
@@ -146,7 +148,7 @@ const AUTO_SCROLL_SPEED = 24; // pixel/giây; chỉnh số này để thay đổ
 let autoRunning = false, autoFrame = 0, autoDelay = 0, lastFrame = 0, autoPosition = 0;
 function updateAutoButton() {
   autoButton.hidden = false;
-  autoButton.textContent = autoRunning ? 'Ⅱ Dừng tự cuộn' : '▶ Tự cuộn';
+  autoButton.textContent = autoRunning ? tr('Ⅱ Dừng tự cuộn', 'Ⅱ Pause auto-scroll') : tr('▶ Tự cuộn', '▶ Auto-scroll');
   autoButton.setAttribute('aria-pressed', String(autoRunning));
 }
 function stopAutoScroll() {
@@ -204,20 +206,20 @@ const toast = m => {
 // Gửi lời chúc
 $('#send').onclick = function () {
   const n = $('#nm'), w = $('#ws'), a = $('#at');
-  if (!n.value.trim()) { n.focus(); toast('Bạn vui lòng nhập tên nhé'); return; }
+  if (!n.value.trim()) { n.focus(); toast(tr('Bạn vui lòng nhập tên nhé', 'Please enter your name.')); return; }
   const data = { name: n.value.trim(), wish: w.value.trim(), attend: a.value, time: new Date().toISOString() };
   const d = document.createElement('div'), b = document.createElement('b');
   b.textContent = data.name;
-  d.append(b, data.wish || data.attend || 'Chúc hai bạn trăm năm hạnh phúc!');
+  d.append(b, data.wish || (data.attend && a.options[a.selectedIndex].textContent) || tr('Chúc hai bạn trăm năm hạnh phúc!', 'Wishing you a lifetime of happiness!'));
   $('#wl').prepend(d);
   if (RSVP_URL) {
     fetch(RSVP_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(data) })
       .then(() => console.log('Đã gửi yêu cầu tới Google Sheet'))
-      .catch(err => { console.error('Gửi lời chúc lỗi:', err); toast('Chưa gửi được, bạn thử lại sau nhé'); });
+      .catch(err => { console.error('Gửi lời chúc lỗi:', err); toast(tr('Chưa gửi được, bạn thử lại sau nhé', 'Unable to send. Please try again.')); });
   } else console.warn('RSVP_URL đang trống nên lời chúc chưa được gửi đi');
   n.value = w.value = ''; a.value = '';
   this.disabled = true; setTimeout(() => { this.disabled = false; }, 3000);
-  toast('Cảm ơn bạn đã gửi lời chúc ♡');
+  toast(tr('Cảm ơn bạn đã gửi lời chúc ♡', 'Thank you for your wishes ♡'));
 };
 
 // Hộp mừng cưới
@@ -226,6 +228,6 @@ $('#gift-open').onclick = () => gift.showModal();
 $('#gift-close').onclick = () => gift.close();
 gift.addEventListener('click', e => { if (e.target === gift) gift.close(); });
 $$('.cp').forEach(b => b.onclick = async () => {
-  try { await navigator.clipboard.writeText(b.dataset.c); toast('Đã sao chép số tài khoản'); }
-  catch (e) { toast('Hãy nhấn giữ để sao chép: ' + b.dataset.c); }
+  try { await navigator.clipboard.writeText(b.dataset.c); toast(tr('Đã sao chép số tài khoản', 'Account number copied')); }
+  catch (e) { toast(tr('Hãy nhấn giữ để sao chép: ', 'Press and hold to copy: ') + b.dataset.c); }
 });
