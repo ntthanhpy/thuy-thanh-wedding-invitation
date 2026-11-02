@@ -22,15 +22,17 @@
 
 <div id="curtain">
   <div class="h l"></div><div class="h r"></div>
-  <button id="seal" aria-label="Mở thiệp cưới">
+  <button id="seal" aria-label="Mở thiệp cưới" data-en-aria="Open wedding invitation">
     <span class="seal-monogram" aria-hidden="true">
       <span class="seal-letter">T</span><span class="seal-heart">♡</span><span class="seal-letter">T</span>
     </span>
   </button>
-  <div class="hint">Chạm để mở thiệp</div>
+  <div class="hint" data-en="Tap to open the invitation">Chạm để mở thiệp</div>
 </div>
 
-<button id="musicBtn" class="music-btn" aria-label="Bật hoặc tắt nhạc">🔇</button>
+<nav class="language-switch" aria-label="Language / Ngôn ngữ"><button type="button" data-language="vi" lang="vi" aria-pressed="true">VI</button><button type="button" data-language="en" lang="en" aria-pressed="false">EN</button></nav>
+
+<button id="musicBtn" class="music-btn" aria-label="Bật hoặc tắt nhạc" data-en-aria="Toggle music">🔇</button>
 <button id="autoScrollBtn" class="auto-scroll-btn" type="button" aria-pressed="false" hidden>▶ Tự cuộn</button>
 
 <div class="wrap">
@@ -40,27 +42,27 @@
   </header>
 
   <section class="sec rv">
-    <p class="q">“Hôn nhân là chuyện cả đời,<br>Yêu người mình chọn, chọn người mình thương.”</p>
-    <div class="gw" id="gw" hidden>Trân trọng kính mời<b id="guest"></b></div>
+    <p class="q" data-en-html="&ldquo;Marriage is a lifelong journey:<br>love the one you choose, and choose the one you love.&rdquo;">“Hôn nhân là chuyện cả đời,<br>Yêu người mình chọn, chọn người mình thương.”</p>
+    <div class="gw" id="gw" hidden><span data-en="Together with our families, we invite">Trân trọng kính mời</span><b id="guest"></b></div>
     <div class="par">
-      <div><h3>Nhà trai</h3><p>Ông Nguyễn Khắc Ngân<br>Bà Trần Thị Kiều Hạnh<br><small>Thôn Phú Tân 2,<br>Xã Ô Loan, Đắk Lắk</small></p></div>
-      <div><h3>Nhà gái</h3><p>Ông Quách Văn Khởi<br>Bà Lê Hồng Nhẫn<br><small>Ấp Trung Điền,<br>Xã Long Điền Đông, Cà Mau</small></p></div>
+      <div><h3 data-en="Groom’s family">Nhà trai</h3><p><span data-en="Mr. Nguyễn Khắc Ngân">Ông Nguyễn Khắc Ngân</span><br><span data-en="Mrs. Trần Thị Kiều Hạnh">Bà Trần Thị Kiều Hạnh</span><br><small data-en-html="Phú Tân 2 Hamlet,<br>Ô Loan Commune, Đắk Lắk">Thôn Phú Tân 2,<br>Xã Ô Loan, Đắk Lắk</small></p></div>
+      <div><h3 data-en="Bride’s family">Nhà gái</h3><p><span data-en="Mr. Quách Văn Khởi">Ông Quách Văn Khởi</span><br><span data-en="Mrs. Lê Hồng Nhẫn">Bà Lê Hồng Nhẫn</span><br><small data-en-html="Trung Điền Hamlet,<br>Long Điền Đông Commune, Cà Mau">Ấp Trung Điền,<br>Xã Long Điền Đông, Cà Mau</small></p></div>
     </div>
     <div class="heart">♡</div>
-    <div class="duo"><div><small>CHÚ RỂ</small><i>Tấn Thành</i></div><div><small>CÔ DÂU</small><i>Diễm Thùy</i></div></div>
+    <div class="duo"><div><small data-en="GROOM">CHÚ RỂ</small><i>Tấn Thành</i></div><div><small data-en="BRIDE">CÔ DÂU</small><i>Diễm Thùy</i></div></div>
   </section>
 
   <div class="frame rv"><div class="ph r34" data-p="groom" data-l="Chú rể"></div><div class="ph r34" data-p="bride" data-l="Cô dâu"></div></div>
 
-  <section class="sec rv"><p class="msg">Trân trọng kính mời quý khách<br>đến chung vui cùng gia đình chúng tôi</p></section>
+  <section class="sec rv"><p class="msg" data-en-html="Together with our families,<br>we warmly invite you to celebrate with us">Trân trọng kính mời quý khách<br>đến chung vui cùng gia đình chúng tôi</p></section>
 
   <div class="frame rv"><div class="ph r34" data-p="m1" data-l="Ảnh 1"></div><div class="ph r34" data-p="m2" data-l="Ảnh 2"></div></div>
 
   <section class="sec" id="events"></section>
 
   <section class="gold rv">
-    <h2>KHOẢNH KHẮC VÀNG</h2>
-    <p>Câu chuyện của chúng mình được viết nên từ những khoảnh khắc giản dị, và hôm nay xin được chia sẻ cùng những người thân yêu.</p>
+    <h2 data-en="GOLDEN MOMENTS">KHOẢNH KHẮC VÀNG</h2>
+    <p data-en="Our story is made of simple, beautiful moments, and today we are delighted to share them with the people we love.">Câu chuyện của chúng mình được viết nên từ những khoảnh khắc giản dị, và hôm nay xin được chia sẻ cùng những người thân yêu.</p>
     <div class="mos">
       <div class="ph a" data-p="g1" data-l="Ảnh 1"></div><div class="ph b" data-p="g2" data-l="Ảnh 2"></div><div class="ph c" data-p="g3" data-l="Ảnh 3"></div>
       <div class="ph d" data-p="g4" data-l="Ảnh 4"></div><div class="ph e" data-p="g5" data-l="Ảnh 5"></div>
@@ -73,45 +75,46 @@
   </section> -->
 
   <section class="sec rsvp rv">
-    <h2>Gửi lời chúc</h2>
-    <p>Sự hiện diện của bạn là niềm vui của chúng mình.</p>
-    <input class="in" id="nm" placeholder="Tên Quý Khách" aria-label="Tên Quý Khách" autocomplete="name">
-    <textarea class="in" id="ws" placeholder="Nhập lời chúc của Quý Khách" aria-label="Lời chúc"></textarea>
-    <select class="in" id="at" aria-label="Xác nhận tham dự">
-      <option value="">Xác nhận tham dự</option>
-      <option>Mình sẽ đến dự</option>
-      <option>Rất tiếc, mình không thể đến</option>
-      <option>Mình chưa chắc chắn</option>
+    <h2 data-en="Send your wishes">Gửi lời chúc</h2>
+    <p data-en="Your presence means the world to us.">Sự hiện diện của bạn là niềm vui của chúng mình.</p>
+    <input class="in" id="nm" placeholder="Tên Quý Khách" data-en-placeholder="Your name" aria-label="Tên Quý Khách" data-en-aria="Your name" autocomplete="name">
+    <textarea class="in" id="ws" placeholder="Nhập lời chúc của Quý Khách" data-en-placeholder="Write your wishes" aria-label="Lời chúc" data-en-aria="Your wishes"></textarea>
+    <select class="in" id="at" aria-label="Xác nhận tham dự" data-en-aria="RSVP">
+      <option value="" data-en="RSVP">Xác nhận tham dự</option>
+      <option value="Mình sẽ đến dự" data-en="Joyfully attending">Mình sẽ đến dự</option>
+      <option value="Rất tiếc, mình không thể đến" data-en="Regretfully unable to attend">Rất tiếc, mình không thể đến</option>
+      <option value="Mình chưa chắc chắn" data-en="Not sure yet">Mình chưa chắc chắn</option>
     </select>
-    <button class="btn" id="send">Gửi lời chúc &amp; xác nhận</button>
-    <button class="btn" id="gift-open" style="margin-top:10px">Gửi quà mừng cưới</button>
+    <button class="btn" id="send" data-en="Send wishes &amp; RSVP">Gửi lời chúc &amp; xác nhận</button>
+    <button class="btn" id="gift-open" style="margin-top:10px" data-en="Send a wedding gift">Gửi quà mừng cưới</button>
     <div class="wishes" id="wl"></div>
   </section>
 
   <section class="sec rv" style="padding-top:8px">
     <div class="cdt">Countdown</div>
-    <div class="cd" id="cd"><div><b>00</b>Ngày</div><div><b>00</b>Giờ</div><div><b>00</b>Phút</div><div><b>00</b>Giây</div></div>
+    <div class="cd" id="cd"><div><b>00</b><span data-en="Days">Ngày</span></div><div><b>00</b><span data-en="Hours">Giờ</span></div><div><b>00</b><span data-en="Minutes">Phút</span></div><div><b>00</b><span data-en="Seconds">Giây</span></div></div>
     <p class="cdl" id="cdl"></p>
   </section>
 
   <section class="ty">
     <div class="ph" data-p="ty" data-l="Ảnh cảm ơn"></div>
-    <div class="t"><span class="sc">Thank you</span>Cảm ơn Quý Khách đã dành thời gian quý báu để chung vui cùng gia đình chúng tôi. Sự hiện diện của Quý Khách là niềm hạnh phúc lớn nhất trong ngày trọng đại này.</div>
+    <div class="t"><span class="sc">Thank you</span><span data-en="Thank you for taking the time to celebrate with our families. Your presence is our greatest joy on this special day.">Cảm ơn Quý Khách đã dành thời gian quý báu để chung vui cùng gia đình chúng tôi. Sự hiện diện của Quý Khách là niềm hạnh phúc lớn nhất trong ngày trọng đại này.</span></div>
   </section>
   <footer>© 2026 Diễm Thùy &amp; Tấn Thành · LDS</footer>
 </div>
 
 <dialog id="gift">
-  <h2 class="serif">Hộp mừng cưới</h2>
-  <div class="bk"><b>Chú rể · Tấn Thành</b>Techcombank · 2010200078<br><button class="btn cp" data-c="2010200078">Sao chép số tài khoản</button></div>
-  <div class="bk"><b>Cô dâu · Diễm Thùy</b>Vietcombank · 1027364415<br><button class="btn cp" data-c="1027364415">Sao chép số tài khoản</button>
-    <img src="assets/images/vietqr.png" alt="Mã VietQR mừng cưới" loading="lazy"></div>
-  <button class="btn sm" id="gift-close">Đóng</button>
+  <h2 class="serif" data-en="Wedding gift">Hộp mừng cưới</h2>
+  <div class="bk"><b data-en="Groom · Tấn Thành">Chú rể · Tấn Thành</b>Techcombank · 2010200078<br><button class="btn cp" data-c="2010200078" data-en="Copy account number">Sao chép số tài khoản</button></div>
+  <div class="bk"><b data-en="Bride · Diễm Thùy">Cô dâu · Diễm Thùy</b>Vietcombank · 1027364415<br><button class="btn cp" data-c="1027364415" data-en="Copy account number">Sao chép số tài khoản</button>
+    <img src="assets/images/vietqr.png" alt="Mã VietQR mừng cưới" data-en-alt="Wedding gift VietQR code" loading="lazy"></div>
+  <button class="btn sm" id="gift-close" data-en="Close">Đóng</button>
 </dialog>
 
-<div id="lb" hidden role="dialog" aria-label="Xem ảnh"><button class="x" aria-label="Đóng">✕</button><button class="pv" aria-label="Ảnh trước">‹</button><img alt="Ảnh cưới Tấn Thành và Diễm Thùy"><button class="nx" aria-label="Ảnh sau">›</button></div>
+<div id="lb" hidden role="dialog" aria-label="Xem ảnh" data-en-aria="View photo"><button class="x" aria-label="Đóng" data-en-aria="Close">✕</button><button class="pv" aria-label="Ảnh trước" data-en-aria="Previous photo">‹</button><img alt="Ảnh cưới Tấn Thành và Diễm Thùy" data-en-alt="Tấn Thành and Diễm Thùy wedding photo"><button class="nx" aria-label="Ảnh sau" data-en-aria="Next photo">›</button></div>
 <div class="toast" id="toast" role="status"></div>
 
+<script src="assets/js/i18n.js"></script>
 <script src="assets/js/main.js"></script>
 </body>
 </html>
