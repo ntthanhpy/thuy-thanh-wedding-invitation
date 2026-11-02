@@ -1,0 +1,9 @@
+CẬP NHẬT BỘ ĐẾM V1.5
+
+Dành cho project song ngữ v1.4. Giải nén, thay file assets/js/main.js trong project bằng file cùng đường dẫn trong gói này, rồi commit và push lên GitHub Pages. Tải lại trang bằng Ctrl+F5.
+
+Giờ đếm ngược: 13:00 ngày 23/11/2026 và 10:00 ngày 24/11/2026, múi giờ Việt Nam (UTC+07:00). Đến giờ sự kiện đầu, bộ đếm tự chuyển sang sự kiện thứ hai.
+
+Nếu main.js trong project của bạn đã chỉnh sửa thêm sau v1.4, không ghi đè cả file: chỉ đổi hai giá trị trường at trong cấu hình EVENTS thành:
+2026-11-23T13:00:00+07:00
+2026-11-24T10:00:00+07:00
