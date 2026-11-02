@@ -25,10 +25,10 @@ const RSVP_URL = 'https://script.google.com/macros/s/AKfycbzyfr8jXEjSLu7yWaCN1G6
 
 // m: link Google Maps ghim vị trí (nên điền, vì địa chỉ nông thôn thường tìm không chính xác). Để trống = tìm theo địa chỉ.
 const EVENTS = [
-  { t: 'Đãi tiệc trước Lễ vu quy', at: '2026-11-23T09:00:00+07:00', s: 'Được tổ chức vào lúc 13:00, Thứ Hai', d: '23', l: '15 tháng 10 năm Bính Ngọ',
+  { t: 'Đãi tiệc trước Lễ vu quy', at: '2026-11-23T13:00:00+07:00', s: 'Được tổ chức vào lúc 13:00, Thứ Hai', d: '23', l: '15 tháng 10 năm Bính Ngọ',
     p: 'Tại tư gia nhà gái', a: 'Ấp Trung Điền, Xã Long Điền Đông, Cà Mau', m: '',
     en: { t: 'Pre-ceremony celebration', s: 'Monday at 1:00 PM', l: '(15th day of the 10th lunar month, Year of the Horse)', p: 'At the bride’s family home', a: 'Trung Điền Hamlet, Long Điền Đông Commune, Cà Mau' } },
-  { t: 'Đãi tiệc sau Lễ vu quy', at: '2026-11-24T09:00:00+07:00', s: 'Được tổ chức vào lúc 10:00, Thứ Ba', d: '24', l: '16 tháng 10 năm Bính Ngọ',
+  { t: 'Đãi tiệc sau Lễ vu quy', at: '2026-11-24T10:00:00+07:00', s: 'Được tổ chức vào lúc 10:00, Thứ Ba', d: '24', l: '16 tháng 10 năm Bính Ngọ',
     p: 'Tại tư gia nhà gái', a: 'Ấp Trung Điền, Xã Long Điền Đông, Cà Mau', m: '',
     en: { t: 'Post-ceremony celebration', s: 'Tuesday at 10:00 AM', l: '(16th day of the 10th lunar month, Year of the Horse)', p: 'At the bride’s family home', a: 'Trung Điền Hamlet, Long Điền Đông Commune, Cà Mau' } }
 ];
