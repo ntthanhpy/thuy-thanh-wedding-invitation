@@ -109,15 +109,79 @@ curtain.addEventListener('click', () => {
   scheduleAutoScroll();
 });
 
-// Tên khách: ...#anh-tuan hoặc ...?khach=Anh+Tuan
-try {
-  const raw = new URLSearchParams(location.search).get('khach') || decodeURIComponent(location.hash.slice(1));
-  const name = raw.replace(/[-_.~]+/g, ' ').trim();
+// Tên khách từ ?khach=...; giữ nguyên dấu, cách viết và dấu câu.
+// Link #anh-tuan cũ vẫn được hỗ trợ khi không có tham số khach.
+(() => {
+  let name = '';
+  try {
+    const params = new URLSearchParams(location.search);
+    if (params.has('khach')) {
+      // URLSearchParams đã giải mã khoảng trắng và ký tự có dấu.
+      name = params.get('khach').trim();
+    } else {
+      const legacyName = decodeURIComponent(location.hash.slice(1))
+        .replace(/[-_.~]+/g, ' ').trim();
+      name = legacyName.replace(/(^|\s)\p{L}/gu, letter => letter.toUpperCase());
+    }
+  } catch (_) { /* Dùng lời chào chung nếu link không hợp lệ. */ }
+
+  const guest = document.getElementById('guest');
+  if (guest) guest.textContent = name;
+  const guestBox = document.getElementById('gw');
+  if (guestBox) guestBox.hidden = !name;
+
+  // Dùng lại logo và lời nhắc mở thiệp hiện có, không cần sửa HTML/CSS.
+  const curtain = document.getElementById('curtain');
+  const seal = document.getElementById('seal');
+  const hint = curtain && curtain.querySelector('.hint');
+  if (!curtain || !seal || !hint || document.getElementById('curtainWelcome')) return;
+
+  const style = document.createElement('style');
+  style.textContent = `
+    #curtain .curtain-content{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;overflow:auto;padding:max(80px,env(safe-area-inset-top,0px)) 24px max(32px,env(safe-area-inset-bottom,0px));transition:opacity .5s}
+    #curtain .curtain-panel{width:100%;max-width:440px;flex-shrink:0;margin:auto;text-align:center;color:#fff}
+    #curtain .curtain-welcome{margin-bottom:34px}
+    #curtain .welcome-lead{margin:0;font:500 17px/1.7 'Be Vietnam Pro',sans-serif}
+    #curtain .welcome-name{display:block;margin:8px 0 10px;font:500 clamp(26px,6vw,38px)/1.4 'Playfair Display',Georgia,serif;white-space:pre-wrap;overflow-wrap:anywhere;text-transform:none}
+    #curtain .welcome-caption{margin:0;font:400 14px/1.8 'Be Vietnam Pro',sans-serif}
+    #curtain #seal{position:relative;left:auto;top:auto;margin:0 auto;flex-shrink:0}
+    #curtain .hint{position:static;left:auto;right:auto;top:auto;margin:30px 0 0;padding:0 8px;font-size:13px;line-height:1.8;letter-spacing:.08em}
+    #curtain.open .curtain-content{opacity:0;pointer-events:none}
+    @media(prefers-reduced-motion:reduce){#curtain .curtain-content{transition:none}}
+  `;
+  document.head.append(style);
+
+  const content = document.createElement('div');
+  content.className = 'curtain-content';
+  const panel = document.createElement('div');
+  panel.className = 'curtain-panel';
+  const welcome = document.createElement('div');
+  welcome.id = 'curtainWelcome';
+  welcome.className = 'curtain-welcome';
+
+  const lead = document.createElement('p');
+  lead.className = 'welcome-lead';
+  lead.textContent = name ? 'Chào mừng' : 'Chào mừng bạn';
+  lead.dataset.en = 'Welcome';
+  welcome.append(lead);
   if (name) {
-    $('#guest').textContent = name.replace(/(^|\s)\p{L}/gu, m => m.toUpperCase());
-    $('#gw').hidden = false;
+    const displayName = document.createElement('bdi');
+    displayName.id = 'curtain-guest-name';
+    displayName.className = 'welcome-name';
+    displayName.textContent = name;
+    welcome.append(displayName);
   }
-} catch (e) { /* bỏ qua */ }
+
+  const caption = document.createElement('p');
+  caption.className = 'welcome-caption';
+  caption.textContent = 'đến với thiệp cưới online của chúng mình';
+  caption.dataset.en = 'to our online wedding invitation';
+  welcome.append(caption);
+  panel.append(welcome, seal, hint);
+  content.append(panel);
+  curtain.append(content);
+
+})();
 
 // Đếm ngược đến lễ kế tiếp
 const times = EVENTS.map(e => new Date(e.at).getTime());
@@ -231,3 +295,4 @@ $$('.cp').forEach(b => b.onclick = async () => {
   try { await navigator.clipboard.writeText(b.dataset.c); toast(tr('Đã sao chép số tài khoản', 'Account number copied')); }
   catch (e) { toast(tr('Hãy nhấn giữ để sao chép: ', 'Press and hold to copy: ') + b.dataset.c); }
 });
+
